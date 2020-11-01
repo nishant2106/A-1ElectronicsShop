@@ -144,9 +144,9 @@ main {
 }
 .inner {
 	padding: 15px;
+	margin-top: 10px;
 	position: relative;
 	text-align: center;
-	margin-top: 10px;
 	border: 1px solid black;
 	display: block;
 	height: 1311px;
@@ -201,45 +201,100 @@ td{
 .checked {
 	color: orange;
 }
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.container {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 180vh;
+}
+.input-label{
+    margin:25px 0;
+}
+.area
+{
+	height:150px;
+	color: #000000;
+}
+.content-box {
+    width: 700px;
+    padding: 0 50px;
+    border-radius: 10px;
+    background: #fff;
+    background-color:  #C4AF9A;
+    /* margin:100px 0; */
+}
 .contact{
 	align-self: center;
 	background: url('../images/co.jpg');
 	padding: 2%;
 }
-.form{
-	width: 10%;
+::placeholder{
+    color:rgba(0, 0, 0, 0.7);
 }
-.innerContact{
-	padding: 0.4%;
-	margin-left: 40%;
-	/* background: blanchedalmond; */
-	background: rgba(0, 0, 0, 0.4);
-	height:440px;
-	border-radius: 5px;
-	width: 300px;
+.successful,
+.danger {
+    position: absolute;
+    right: 21px;
+    top: 12px;
 }
-.contact input[type="text"]{
-	color: #ffffff;
-	width: 286px;
-	border: none;
-	border-radius: 3px;
-	background: rgba(0, 0, 0, 0.8);
-	border-bottom: 1px solid #ffffff;
-	font-size: 20px;
-	height: 25px;
-	margin: 1px;
+.successful {
+    color: #fff;
+}
+.danger {
+    color: #fff;
+}
+label {
+    position: relative;
+    margin: 0;
+}
+input:-webkit-autofill {
+    background: #32e0c4 !important;
+}
+.fieldName{
+	margin:8px 0;
+	width: 20%;
+}
+.field{
+	/* display: inline-block; */
+	padding: 0.5rem 1rem;
+	width: 80%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    /* background: rgba(230, 230, 230, 0.6); */
+    background: #F7F8F8;
+    font-size: 1.1rem;
+    transition: .3s;
+    border-radius: 7px;
+
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07),
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07)
+}
+.right {
+    margin: 50px 0;
 }
 .contact input[type="submit"]{
+	width: 100%;
+    height: 50px;
+    background-color: #7579e7;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+	background-color : #485461;
+	background-image:#485461;
+    font-weight: 500;
+    transition:.3s all ease-in-out;
+}
+.contact input[type="submit"]:hover {
+	background: #ffffff;
 	color: #000000;
-	width: 286px;
-	border: none;
-	border-radius: 3px;
-	/* background: rgba(0, 0, 0, 0.8); */
-	background: #4482c5;
-	border-bottom: 1px solid #ffffff;
-	font-size: 20px;
-	height: 25px;
-	margin: 1px;
+
 }
 textarea{
 	color: #ffffff;
@@ -248,15 +303,52 @@ textarea{
 	background: rgba(0, 0, 0, 0.8);
 	border-bottom: 1px solid #ffffff;
 }
-select{
-	color: #ffffff;
-	border: none;
-	border-radius: 3px;
-	width: 980%;
-	font-size: 15px;
-	height: 25px;
-	background: rgba(0, 0, 0, 0.8);
-	border-bottom: 1px solid #ffffff;
+select
+{
+    width:200px;
+    border:2px solid #2BC0E4;
+    
+
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07),
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
 }
 
+select:focus{
+    outline: none;
 
+}
+.error{
+	display: none;
+	color: red;
+	margin-top: -23px;
+	margin-bottom: -20px; 
+	margin-left: 20%;
+	font-size: 11pt;
+	white-space: nowrap;
+	height: 20px;
+}
+fieldset {
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.radio-class {
+	float: left;
+	clear: none;
+}
+
+.radio-class label {
+	float: left;
+	clear: none;
+	display: block;
+	color: #ffddff;
+	padding: 0px 1em 0px 8px;
+}
+
+.radio-class input[type=radio]{
+	float: left;
+	clear: none;
+	margin: 2px 0 0 2px;
+}

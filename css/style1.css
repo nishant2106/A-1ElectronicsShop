@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	padding: 0;
+	padding: 0; /*padding used */
     background: #C4AF9A;
     font-family: Arial, Helvetica, sans-serif;
     color: wheat;
@@ -15,7 +15,7 @@ nav ul {
 	list-style: none;
 	background-color: rgb(136, 125, 125);
 	text-align: center;
-	padding: 0;
+	padding: 0; 	/*padding used */
 	margin: 0;
 }
 
@@ -41,7 +41,7 @@ nav a {
 	text-decoration: none;
 	color: black;
 	display: block;
-	padding-left: 15px;
+	padding-left: 15px;		/*padding used */
 	transition: 0.5s background-color;
 }
 
@@ -165,5 +165,4 @@ nav li ul li a{
 table{
 	border-left: 2px solid black;
 	padding-top: 10px;
-	
 }

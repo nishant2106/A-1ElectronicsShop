@@ -5,7 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/79deda6cc6.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="./navbar.css" />
+    <link rel="stylesheet" href="./aboutus.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        function lettersOnly(input){
+            let ch = /[^a-z]/gi;
+            input.value = input.value.replace(ch,"")
+            console.log(input.value)
+        }
+        function numbersOnly(input,no){
+            let ch = /[^0-9]/gi;
+            input.value = input.value.replace(ch,"")
+            console.log(input.value)
+            if(input.value.length > no){
+                input.value=input.value.substring(0,input.value.length-1)
+            }
+        }
+    </script>
     <title>Contact Us</title>
 </head>
 
@@ -29,40 +70,147 @@
         <a href="./contactus.html"  class="active"><i class="fa fa-envelope"></i>  Contact Us</a>
     </nav>
     <div class="contact">
-        <div class="innerContact">
-            <form class="form" action="#">
-                <p>
-                    <input type="text" placeholder="First Name">
-                </p>
-                <p>
-                    <input type="text" placeholder="Last Name">
-                </p>
-                <p>
-                    <input type="text" placeholder="E-mail ID">
-                </p>
-                <p>
-                    <input type="text" placeholder="Mobile No.">
-                </p>
-                <p>
-                    <input type="text" placeholder="Address">
-                </p>
-                <p>
-                    <input type="text" placeholder="Pin Code">
-                </p>
-                <p>
-                    <select id="msgType" name="msgType">
-                        <option value="blank">Message Type</option>
-                        <option value="Suggestion">Suggestion</option>
-                        <option value="Feedback">Feedback</option>
-                        <option value="Complaint">Complaint</option>
-                        <option value="Comment">Comment</option>
-                    </select>
-                </p>
-                <p>
-                    <textarea rows="5" cols="33.5" placeholder="Message"></textarea>
-                </p>
-                <input type="submit">
-            </form>
+        <div class="container">
+            <div class="content-box">
+                <div class="right">
+                    <center><h3>Contact Us</h3></center>
+                    <form autocomplete="off" autocapitalize="on">
+                        <label  class="input-label" style="display: flex;flex-direction:row">
+                            <label class="fieldName" >First Name</label>
+                            <input 
+                            type="text" 
+                            id="fname" 
+                            name="fname" 
+                            class="field"
+                            placeholder="Enter First Name" 
+                            autocomplete="off" 
+                            onblur="blurFun(this,'*First Name ',document.getElementById('validateFname'),/^([a-zA-Z ]+)$/,document.getElementById('FNSuccessful'),document.getElementById('FNDanger'))"
+                            onfocus="focusFun(this,document.getElementById('validateFname'))" 
+                            onkeyup="lettersOnly(this)"></input>
+                            <span  class="successful" id="FNSuccessful"> <i class="fas fa-check-circle "></i></span>
+                            <span  class="danger" id="FNDanger"> <i class="fas fa-close"></i></span>
+                            
+                        </label>
+                        <p class="error" id="validateFname" name="validateFname">**First Name should only contain letters.</p>
+                        <label  class="input-label" style="display: flex;flex-direction:row">
+                            <label class="fieldName" >Last Name</label>
+                            <input 
+                            type="text" 
+                            id="lname" 
+                            name="lname" 
+                            class="field"
+                            placeholder="Enter Last Name" 
+                            autocomplete="off" 
+                            onblur="blurFun(this,'*Last Name ',document.getElementById('validateLname'),/^([a-zA-Z ]+)$/,document.getElementById('LNSuccessful'),document.getElementById('LNDanger'))"
+                            onfocus="focusFun(this,document.getElementById('validateLname'))" 
+                            onkeyup="lettersOnly(this)"></input>
+                            <span  class="successful" id="LNSuccessful"> <i class="fas fa-check-circle "></i></span>
+                            <span  class="danger" id="LNDanger"> <i class="fas fa-close"></i></span>
+                        </label>
+                        <p class="error" id="validateLname" name="validateLname">**Last Name can only contain</p>
+                        <label class="input-label"  style="display: flex;flex-direction:row">      
+                            <label class="fieldName" >Email</label>
+                            <input 
+                            type="text" 
+                            id="mail" 
+                            class="field"
+                            name="mail" 
+                            placeholder="Enter your E-mail ID" 
+                            autocomplete="off"
+                            onblur="blurEmailFun(this,'E-mail ID ',document.getElementById('validateMail'),document.getElementById('MailSuccessful'),document.getElementById('MailDanger'))"
+                            onfocus="focusFun(this,document.getElementById('validateMail'))" 
+                            ></input>
+                            <span  class="successful" id="MailSuccessful"> <i class="fas fa-check-circle "></i></span>
+                            <span  class="danger" id="MailDanger"> <i class="fas fa-close"></i></span>
+                        </label>
+                        <p class="error" id="validateMail" name="validateMail">**Email-ID should be in proper format.</p>
+                        <label class="input-label"  style="display:flex; flex-direction: row">      
+                            <label class="fieldName" >Mobile No.</label>
+                            <input 
+                                type="text" 
+                                id="mob" 
+                                name="mob" 
+                                class="field"
+                                placeholder="Enter Your Mobile No." 
+                                autocomplete="off"
+                                onblur="blurFun(this,'Mobile No. ',document.getElementById('validateMob'),/^([0-9]{10})$/,document.getElementById('MobSuccessful'),document.getElementById('MobDanger'))"
+                                onfocus="focusFun(this,document.getElementById('validateMob'))" 
+                                onkeyup="numbersOnly(this,10)"
+                            ></input>
+                            <span  class="successful" id="MobSuccessful"> <i class="fas fa-check-circle "></i></span>
+                            <span  class="danger" id="MobDanger"> <i class="fas fa-close"></i></span>
+                        </label>
+                        <p class="error" id="validateMob" name="validateMob">**Mobile no. should contain 10 digits.</p>
+                        <label class="input-label"  style="display: flex;flex-direction:row">
+                            <label class="fieldName" >Enter Address</label>
+                            <input 
+                            type="text" 
+                            id="address" 
+                            name="address" 
+                            class="field"
+                            placeholder="Enter Your Full Address" 
+                            autocomplete="off"
+                            onblur="blurAddressFun(this,'Address ',document.getElementById('validateAddress'),document.getElementById('AddSuccessful'),document.getElementById('AddDanger'))"
+                            onfocus="focusFun(this,document.getElementById('validateAddress'))" 
+                            ></input>
+                            <span  class="successful" id="AddSuccessful"> <i class="fas fa-check-circle "></i></span>
+                            <span  class="danger" id="AddDanger"> <i class="fas fa-close"></i></span>
+                        </label>
+                        <p class="error" id="validateAddress" name="validateAddress">**Address Should be in proper format.</p>
+                        <label class="input-label"  style="display: flex;flex-direction:row">
+                            <label class="fieldName">Pin Code</label>
+                            <input 
+                            type="text" 
+                            id="pin" 
+                            name="pin" 
+                            class="field"
+                            placeholder="Enter your Pin Code" 
+                            autocomplete="off"
+                            onblur="blurFun(this,'*Pin code ',document.getElementById('validatePin'),/^[0-9]{6}$/,document.getElementById('PinSuccessful'),document.getElementById('PinDanger'))"
+                            onfocus="focusFun(this,document.getElementById('validatePin'))"
+                            onkeyup="numbersOnly(this,6)"></input>
+                            <span  class="successful" id="PinSuccessful"> <i class="fas fa-check-circle "></i></span>
+                            <span  class="danger" id="PinDanger"> <i class="fas fa-close"></i></span>
+                        </label>
+                        <p class="error" id="validatePin" name="validatePin">*Pin Code should contain 6 digits.</p>
+                        <label class="input-label"  style="display: flex;flex-direction:row">
+                            <label class="fieldName" >Qualification</label>
+                            <fieldset class="field">
+                                <input type="checkbox" id="male" name="ssc" value="ssc">
+                                <label for="ssc" style="margin-right: 20px;">SSC</label>
+                                <input type="checkbox" id="hsc" name="hsc" value="hsc">
+                                <label for="hsc" style="margin-right: 20px;">HSC</label>
+                                <input type="checkbox" id="Graduation" name="Graduation" value="Graduation">
+                                <label for="Graduation">Graduation</label>
+                            </fieldset>
+                        </label>
+                        <label class="input-label"  style="display: flex;flex-direction:row">
+                            <label class="fieldName">Gender</label>
+                            <fieldset class="field">
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male" style="margin-right: 20px;">Male</label>
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female" style="margin-right: 20px;">Female</label>
+                                <input type="radio" id="other" name="gender" value="other">
+                                <label for="other">Other</label>
+                            </fieldset>
+                        </label>
+                        <label class="fieldName">Message Type: </label>
+                        <select id="msgType" name="msgType">
+                            <option value="Suggestion">Suggestion</option>
+                            <option value="Feedback">Feedback</option>
+                            <option value="Complaint">Complaint</option>
+                            <option value="Comment">Comment</option>
+                        </select>
+                        <textarea 
+                            class="field area input-label"
+                            style="width:100%"
+                            placeholder="Purpose"
+                            ></textarea>
+                        <input type="submit" id="submit" name="submit">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <footer>
@@ -70,6 +218,7 @@
             <i class="fa fa-copyright"></i>2020@ All Right Reserved
         </p>
         <p>A-1 Electronics Shop</p>
-        <p><i class="fa fa-instagram"></i>         <i class="fa fa-facebook"></i>        <i class="fa fa-youtube"></i></p>
+        <p><i class="fa fa-instagram"></i>           <i class="fa fa-facebook"></i>          <i class="fa fa-youtube"></i></p>
     </footer>
+    <script src="javascript/script.js"></script>
 </body>
